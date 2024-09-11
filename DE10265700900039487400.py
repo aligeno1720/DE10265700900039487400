@@ -488,8 +488,23 @@ def main():
     display_message()
 
     # Additional script logic can be added here
-    print("Additional script tasks can be executed here.")
+    print("Excecuting Databases...!")
+    time.sleep(5)
+def dot_loading(duration, interval=0.5, max_dots=10):
+    end_time = time.time() + duration
+    while time.time() < end_time:
+        for i in range(max_dots + 1):
+            sys.stdout.write('\rLoading' + '.' * i + ' ' * (max_dots - i))
+            sys.stdout.flush()
+            time.sleep(interval)
+    sys.stdout.write('\rLoading' + '.' * max_dots + '\n')  # Ensure the last line is complete
+    sys.stdout.flush()
 
+if __name__ == "__main__":
+    duration = 5  # Duration in seconds
+    dot_loading(duration)
+    print("ACCESS GRANTED!")    
+    time.sleep (3)
 if __name__ == "__main__":
     main()
 #======================================================================== certificate
